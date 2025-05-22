@@ -1,8 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"github.com/MinKaizen/goback/internal/logging"
+)
 
 func main() {
-    fmt.Println("Hello, World")
-}
+	logging.Init(true)
+	defer logging.Logger.Sync()
 
+	logging.Logger.Infof("Hello world!")
+}
